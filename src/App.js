@@ -39,8 +39,11 @@ function App() {
   return (
     <div className="app">
       <div className="app__body" >
+        Hello
+        
+        
       <Sidebar />
-      <Chat />
+      <Chat messages={messages}/>
       </div>
     </div>
   );
