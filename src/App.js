@@ -13,10 +13,9 @@ function App() {
 
   useEffect(()=>{
     axios.get("/messages/sync").then(response=>{
-      console.log(response.data)
       setMessages(response.data);
     })
-  },[])
+  },[]);
 
   useEffect(()=>{
     const pusher = new Pusher('2a302de178aaf5fc1a6b', {
@@ -24,10 +23,16 @@ function App() {
     });
 
     const channel = pusher.subscribe('messages');
-    channel.bind('inserted', (data) => {
-      alert(JSON.stringify(data));
+    channel.bind('inserted', (newMessage) => {
+      setMessages([...messages,newMessage]);
     });
-  },[]);
+
+    return () =>{
+      channel.unbind_all();
+      channel.unsubscribe();
+    }
+
+  },[messages]);
 
   console.log(messages);
 
