@@ -38,8 +38,7 @@ function App() {
 
   return (
     <div className="app">
-      <div className="app__body" >
-        Hello
+      <div className="app__body" >  
         
         
       <Sidebar />
