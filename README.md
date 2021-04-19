@@ -1,3 +1,7 @@
+# Front end look
+
+![](src/images/front%20end%20design.png)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
